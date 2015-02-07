@@ -1,0 +1,170 @@
+$dark: #212121;
+$light: #efefef;
+$color: #b3e5fc;
+
+@mixin navToggle($left, $top) {
+  // transition-duration: 0.5s;
+}
+
+@mixin icon($height, $width) {
+  @include transition(transform 200ms);
+  position: absolute;
+  height: $height;
+  width: $width;
+  top: 60px;
+  background-color: white;
+}
+
+@mixin icon-before($height, $width, $top) {
+  @include transition(transform 200ms);
+  
+  position: absolute;
+  width: $width;
+  height: $height;
+  background-color: white;
+  content: "";
+  top: $top;
+}
+
+@mixin icon-after($height, $width, $top) {
+  @include transition(transform 200ms);
+  
+  position: absolute;
+  width: $width;
+  height: $height;
+  background-color: white;
+  content: "";
+  top: $top;
+}
+
+.nav-toggle {
+  @include navToggle(120px, 180px);
+  
+  .icon {
+    @include icon(2px, 34px);
+    
+    &:before{
+      @include icon-before(2px, 33px, -8px);
+    }
+    
+    &:after{
+      @include icon-after(2px, 34px, 8px);
+    }
+    
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.go-back {
+    position: fixed;
+    bottom: 35px;
+    right: 30px;
+    z-index: 90;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 50%;
+    background: darken($dark-slate, 13%);
+    display: none;
+
+    span {
+      font-size: 28px;
+    }
+}
+
+#nav {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+
+    &.active {
+        ul {
+          left: 0;
+        }
+
+        .icon {
+          
+          transform: rotateZ(180deg);
+          
+          &:before{
+            transform: rotateZ(45deg) scaleX(0.75) translate(14px, -9px);
+            width: 29px;
+          }
+
+          &:after{
+            transform: rotateZ(-45deg) scaleX(0.75) translate(14px, 9px);
+            width: 29px;
+          }
+        }
+
+        li {
+            opacity: 1;
+            @include transform(translateX(0));
+        }
+
+      }
+
+    .nav-toggle {
+        position: fixed;
+        border-radius: 50%;
+        background: darken($dark-slate, 13%);
+        width: 60px;
+        height: 60px;
+
+        .icon {
+            position: relative;
+            top: 29px;
+            left: 14px;
+        }
+    }
+
+    nav {
+        position: fixed;
+        width: 55px;
+        height: 55px;
+        background: $green;
+        border-radius: 50vw;
+        @include transform(translateX(2px) translateY(2px));
+
+        ul {
+            width: 100vw;
+            position: absolute;
+            top: 50%;
+            left: 200px;
+            @include transform(translateY(-50%));
+        }
+
+        li {
+            color: white;
+            font-size: em(40);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: em(7);
+            text-align: center;
+            opacity: 0;
+            @include transform(translateX(10px));
+
+            &:nth-child(1){
+                @include transition(all 150ms 100ms);
+            }
+            &:nth-child(2){
+                @include transition(all 150ms 200ms);
+            }
+            &:nth-child(3){
+                @include transition(all 150ms 300ms);
+            }
+            &:nth-child(4){
+                @include transition(all 150ms 400ms);
+            }
+            &:nth-child(5){
+                @include transition(all 150ms 500ms);
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+.block.lights {
+
+    &[data-state="allOn"]{
+        background: $yellow;
+
+        header {
+            background: $yellow2;
+        }
+
+        .command {
+            background: $yellow2;
+            box-shadow: none;
+        }
+    }
+
+    &[data-state="allOff"]{
+        background: gray;
+
+        header {
+            background: darken(gray, 5%);
+        }
+
+        .command {
+            background: darken(gray, 5%);
+            box-shadow: none;
+        }
+    }
+
+    &[data-state="nightMode"]{
+        background: orange;
+
+        header {
+            background: darken(orange, 5%);
+        }
+
+        .command {
+            background: darken(orange, 5%);
+            box-shadow: none;
+        }
+    }
+}

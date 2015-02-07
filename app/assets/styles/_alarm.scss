@@ -1,0 +1,73 @@
+.block.alarm {
+    
+    &[data-active="true"]{
+        .time-picker {
+            display: block;
+        }
+    }
+}
+
+.alarm-times {
+    position: absolute;
+    width: 65vw;
+    top: 50%;
+    left: 50%;
+    @include transform(translateX(-50%) translateY(-50%));
+}
+
+.time-picker {
+    padding: em(18) em(10) em(30);
+    margin: 0 0 em(20);
+    background: $purple2;
+    display: none;
+    @include clearfix;
+    
+    h1 {
+        text-align: center;
+    }
+}
+
+.time-picker-wrapper {
+    height: 60px;
+    overflow: hidden;
+}
+
+.times {
+    float: left;
+    padding: em(5);
+    text-align: right;
+    
+    
+    .selected {
+        color: white;
+    }
+
+    span {
+        display: block;
+        font-size: em(60);
+        font-weight: 500;
+        text-align: right;
+        text-transform: uppercase;
+    }
+}
+
+.hours {
+    width: 20vw;
+}
+
+.ampm {
+    position: relative;
+    top: 4px;
+
+    .selected {
+        color: white;
+    }
+
+    span {
+        font-size: em(24);
+        padding: 1px 0;
+        text-align: center;
+        color: rgba(white, .2);
+        @include transition(color 200ms);
+    }
+}

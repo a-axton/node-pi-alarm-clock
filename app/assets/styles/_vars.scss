@@ -1,0 +1,14 @@
+$dark-slate: lighten(#414251, 4%);
+$slate: lighten(#414251, 9%);
+
+$yellow: #ffff8d;
+$yellow2: #ffeb3b;
+$blue: #84ffff;
+$blue2: #03A9F4;
+$purple: rgb(154, 99, 236);
+$purple2: #8B40FA;
+$green: #1de9b6;
+
+@mixin shadow {
+    box-shadow: 0 0 10px darken($dark-slate, 10%);
+}

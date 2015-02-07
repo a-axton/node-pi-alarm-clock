@@ -1,0 +1,108 @@
+.module-header {
+    height: 10vh;
+    width: 100vw;
+    padding-top: 3.2vh;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background: tomato;
+    opacity: 0;
+    text-align: center;
+
+    h1 {
+        font-weight: 400;
+        font-size: 3vh;
+        text-transform: capitalize;
+        color: $slate;
+    }
+}
+
+.sections {
+    position: relative;
+    padding: 4vw 0;
+}
+
+.commands {
+    position: relative;
+    padding-top: 13vh;
+}
+
+.block {
+    position: absolute;
+    overflow: hidden;
+    height: 44vw;
+    width: 44vw;
+    float: left;
+    margin: 0 0 4vw 4vw;
+    background: tomato;
+    color: white;
+    @include shadow;
+    @include transition(background 200ms);
+    @include transform(translateX(0) translateY(0) translateZ(0));
+
+    .icon {
+        font-size: 96px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include transform(translateX(-50%) translateY(-50%));
+    }
+
+    &[data-active="true"]{
+        .section-info {
+            display: none;
+        }
+    }
+
+    header {
+        @include transition(background 200ms);
+    }
+
+    .command {
+        @include transition(background 200ms);
+    }
+}
+
+.blue {
+    background: $blue; 
+
+    header {
+        background: $blue2;
+    }
+
+    .command {
+        background: $blue2; 
+        box-shadow: none;
+    }
+}
+
+.yellow {
+    background: $yellow;
+
+    header {
+        background: $yellow2;
+    }
+
+    .command {
+        background: $yellow2;
+        box-shadow: none;
+    }
+}
+
+.purple {
+    background: $purple;
+
+    header {
+        background: $purple2;
+    }
+
+    .command {
+        background: $purple2;
+        box-shadow: none;
+    }
+}
+
+.block.command {
+    opacity: 0;
+}

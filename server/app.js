@@ -7,10 +7,10 @@ var express = require('express'),
 
 var app = express();
 var server = http.createServer(app);
-var routes = require('./routes');
-
 var io = require('./lib/socketio').listen(server);
-var Resource = require('./models/resource').register(app);
+var routes = require('./routes');
+var alarm = require('./lib/alarm');
+
 
 // configure express app
 app.set('port', 9000);
@@ -27,3 +27,5 @@ app.get('/', routes.index );
 server.listen(app.get('port'), function(){
     console.log('its go time');
 });
+
+module.exports = io;
